@@ -21,7 +21,7 @@ public class BaseTest {
 	
 	 prop = new Properties();
 
-		FileInputStream fis = new FileInputStream("C:\\Users\\1118a\\BreakingCode\\SwagLabs\\src\\main\\java\\resource\\config.properties");
+		FileInputStream fis = new FileInputStream("C:\\Users\\1118a\\seleniumprojects\\SwagLabs\\src\\main\\java\\resource\\config.properties");
 	    prop.load(fis);
 	   
 	    
@@ -34,7 +34,7 @@ public class BaseTest {
 		String browserName = prop.getProperty("browser");
 		if(browserName.equalsIgnoreCase("chrome")) {
 			
-			System.setProperty("webdriver.chrome.driver", "C:\\Users\\1118a\\BreakingCode\\SwagLabs\\ExeFile\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "C:\\Users\\1118a\\seleniumprojects\\SwagLabs\\ExeFile\\chromedriver.exe");
 			driver = new ChromeDriver();
 		}
 		

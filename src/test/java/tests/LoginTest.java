@@ -2,7 +2,7 @@ package tests;
 
 import java.io.IOException;
 
-import org.testng.Assert;
+import org.testng.AssertJUnit;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -13,14 +13,15 @@ import pages.LoginPage;
 public class LoginTest extends BaseTest {
 
 	LoginPage loginPage;
+	
 
 	public LoginTest() throws IOException {
 		super();
-
 	}
 
 	@BeforeMethod
 	public void setUp() throws IOException {
+		
 		initialization();
 
 		loginPage = new LoginPage();
@@ -29,13 +30,17 @@ public class LoginTest extends BaseTest {
 	@Test
 	public void pageLogoTest() {
 		boolean flag = loginPage.validateLogo();
-		Assert.assertTrue(flag);
+		AssertJUnit.assertTrue(flag);
 	}
 
 	@Test
 	public void loginPageTest() {
-
+		
+		
+		
 		loginPage.validateLogin(prop.getProperty("username"), prop.getProperty("password"));
+		loginPage.logout();
+		
 
 	}
 
