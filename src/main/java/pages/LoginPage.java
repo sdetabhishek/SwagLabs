@@ -33,6 +33,9 @@ public class LoginPage extends BaseTest {
 	@FindBy( xpath ="//button[text()='Open Menu']")
 	WebElement openmenu;
 	
+	@FindBy(id ="logout_sidebar_link")
+	WebElement logout;
+	
 	
 	
 	public boolean validateLogo() {
@@ -49,6 +52,16 @@ public void validateLogin(String name, String pass) {
 	pwd.sendKeys(pass);
 	login.click();
 	TestUtils.waitForElemementToAppear(openmenu);
+	
+}
+
+public void logout() {
+	
+	openmenu.click();
+	logout.click();
+	TestUtils.waitForElemementToAppear(logo);
+	Boolean flag = logo.isDisplayed();
+	System.out.println(flag);
 	
 }
 }
