@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-
 import base.BaseTest;
 import utils.TestUtils;
 
@@ -15,14 +14,14 @@ public class CheckoutPage extends BaseTest {
 
 	public CheckoutPage() throws IOException {
 		super();
-		
+
 		PageFactory.initElements(driver, this);
-		
+
 	}
-	
+
 	@FindBy(xpath = "//span[text()='Checkout: Your Information']")
 	WebElement checkoutpage;
-	
+
 	public void checkoutInformation() {
 
 		TestUtils.waitForElemementToAppear(checkoutpage);
@@ -33,8 +32,5 @@ public class CheckoutPage extends BaseTest {
 
 		driver.findElement(By.id("continue")).click();
 	}
-	
-	
-	
 
 }

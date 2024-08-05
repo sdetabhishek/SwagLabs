@@ -15,7 +15,6 @@ public class CheckoutCompletePage extends BaseTest {
 	public CheckoutCompletePage() throws IOException {
 		super();
 
-
 		PageFactory.initElements(driver, this);
 	}
 

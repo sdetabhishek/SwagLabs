@@ -26,42 +26,37 @@ public class LoginPage extends BaseTest {
 
 	@FindBy(name = "login-button")
 	WebElement login;
-	
-	@FindBy( className ="login_logo")
+
+	@FindBy(className = "login_logo")
 	WebElement logo;
-	
-	@FindBy( xpath ="//button[text()='Open Menu']")
+
+	@FindBy(xpath = "//button[text()='Open Menu']")
 	WebElement openmenu;
-	
-	@FindBy(id ="logout_sidebar_link")
+
+	@FindBy(id = "logout_sidebar_link")
 	WebElement logout;
-	
-	
-	
+
 	public boolean validateLogo() {
-		
+
 		return logo.isDisplayed();
 	}
 
+	public void validateLogin(String name, String pass) {
 
+		username.sendKeys(name);
+		pwd.sendKeys(pass);
+		login.click();
+		TestUtils.waitForElemementToAppear(openmenu);
 
+	}
 
-public void validateLogin(String name, String pass) {
+	public void logout() {
 
-	username.sendKeys(name);
-	pwd.sendKeys(pass);
-	login.click();
-	TestUtils.waitForElemementToAppear(openmenu);
-	
-}
+		openmenu.click();
+		logout.click();
+		TestUtils.waitForElemementToAppear(logo);
+		Boolean flag = logo.isDisplayed();
+		System.out.println(flag);
 
-public void logout() {
-	
-	openmenu.click();
-	logout.click();
-	TestUtils.waitForElemementToAppear(logo);
-	Boolean flag = logo.isDisplayed();
-	System.out.println(flag);
-	
-}
+	}
 }
