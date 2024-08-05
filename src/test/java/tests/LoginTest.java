@@ -13,7 +13,6 @@ import pages.LoginPage;
 public class LoginTest extends BaseTest {
 
 	LoginPage loginPage;
-	
 
 	public LoginTest() throws IOException {
 		super();
@@ -21,7 +20,7 @@ public class LoginTest extends BaseTest {
 
 	@BeforeMethod
 	public void setUp() throws IOException {
-		
+
 		initialization();
 
 		loginPage = new LoginPage();
@@ -35,12 +34,9 @@ public class LoginTest extends BaseTest {
 
 	@Test
 	public void loginPageTest() {
-		
-		
-		
+
 		loginPage.validateLogin(prop.getProperty("username"), prop.getProperty("password"));
 		loginPage.logout();
-		
 
 	}
 

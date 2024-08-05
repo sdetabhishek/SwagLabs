@@ -21,24 +21,24 @@ public class ProductPageTest extends BaseTest {
 
 	}
 
-	
 	@BeforeMethod
 	public void setUp() throws IOException {
 
 		initialization();
 		loginPage = new LoginPage();
 		loginPage.validateLogin(prop.getProperty("username"), prop.getProperty("password"));
-		
+
 	}
 
 	@Test(dataProvider = "getFilterData")
 	public void filter(String filtername) throws IOException {
-		
+
 		productPage = new ProductsPage();
-		
+
 		productPage.filterProduct(filtername);
+
 	}
-	
+
 	@Test(dataProvider = "getData")
 	public void addProductToCart(String productName) throws IOException {
 
@@ -46,7 +46,6 @@ public class ProductPageTest extends BaseTest {
 		productPage.addProductToCart(productName);
 	}
 
-	
 	@AfterMethod
 	public void tearDown() {
 		driver.quit();
@@ -55,13 +54,14 @@ public class ProductPageTest extends BaseTest {
 	@DataProvider
 	public Object[][] getData() {
 
-		return new Object[][] { {"Sauce Labs Backpack"} };
+		return new Object[][] { { "Sauce Labs Backpack" } };
 	}
-	
+
 	@DataProvider
 	public Object[][] getFilterData() {
 
-		return new Object[][] { {"Name (A to Z)"}, {"Name (Z to A)"}, {"Price (low to high)"}, {"Price (high to low)"}};
+		return new Object[][] { { "Name (A to Z)" }, { "Name (Z to A)" }, { "Price (low to high)" },
+				{ "Price (high to low)" } };
 	}
 
 }

@@ -23,14 +23,13 @@ public class YourCartTest extends BaseTest {
 
 	}
 
-
 	@BeforeMethod
 	public void setUp() throws IOException {
 
 		initialization();
 		loginPage = new LoginPage();
 		loginPage.validateLogin(prop.getProperty("username"), prop.getProperty("password"));
-		
+
 	}
 
 	@Test(dataProvider = "getData")
@@ -42,7 +41,6 @@ public class YourCartTest extends BaseTest {
 		yourCartPage.verifyProductOnCartPage(productName);
 	}
 
-
 	@AfterMethod
 	public void tearDown() {
 		driver.quit();
@@ -51,6 +49,6 @@ public class YourCartTest extends BaseTest {
 	@DataProvider
 	public Object[][] getData() {
 
-		return new Object[][] { { "Sauce Labs Backpack" }};
+		return new Object[][] { { "Sauce Labs Backpack" } };
 	}
 }

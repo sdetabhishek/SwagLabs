@@ -8,6 +8,7 @@
           <include name="loginPageTest"/>
           <include name="setUp"/>
           <include name="tearDown"/>
+          <include name="pageLogoTest"/>
         </methods>
       </class> <!-- tests.LoginTest -->
     </classes>

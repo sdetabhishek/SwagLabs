@@ -15,7 +15,7 @@ import pages.ProductsPage;
 import pages.YourCartPage;
 
 public class CheckoutPageTest extends BaseTest {
-	
+
 	public LoginPage loginPage;
 	public ProductsPage productPage;
 	public YourCartPage yourCartPage;
@@ -26,10 +26,9 @@ public class CheckoutPageTest extends BaseTest {
 		super();
 	}
 
-	
 	@BeforeMethod
 	public void setUp() throws IOException {
-		
+
 		initialization();
 		loginPage = new LoginPage();
 		loginPage.validateLogin(prop.getProperty("username"), prop.getProperty("password"));
@@ -45,20 +44,16 @@ public class CheckoutPageTest extends BaseTest {
 		checkoutPage = new CheckoutPage();
 		checkoutPage.checkoutInformation();
 	}
-	
-	
 
-	
 	@AfterMethod
 	public void tearDown() {
 		driver.quit();
 	}
-	
+
 	@DataProvider
 	public Object[][] getData() {
 
-		return new Object[][] { {"Sauce Labs Backpack" } };
+		return new Object[][] { { "Sauce Labs Backpack" } };
 	}
 
-	
 }

@@ -1,6 +1,7 @@
 package pages;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -16,7 +17,7 @@ public class ProductsPage extends BaseTest {
 
 	public ProductsPage() throws IOException {
 		super();
-		
+
 		PageFactory.initElements(driver, this);
 	}
 
@@ -31,19 +32,18 @@ public class ProductsPage extends BaseTest {
 
 	@FindBy(xpath = "//a[contains(@class,'shopping_cart_link')]")
 	WebElement cartLink;
-	
+
 	@FindBy(xpath = "//span[contains(@class,'active_option')]")
 	WebElement filterdropdown;
-	
-	
-	
-	public void filterProduct(String filtername) {
-		
+
+	public void filterProduct(String filtername) throws UnsupportedEncodingException {
+
 		WebElement filter = driver.findElement(By.xpath("//select[contains(@class,'product_sort_container')]"));
 		filter.click();
 		Select select = new Select(filter);
-	    select.selectByVisibleText(filtername);
-		
+
+		select.selectByVisibleText(filtername);
+
 	}
 
 	public void addProductToCart(String productName) {
